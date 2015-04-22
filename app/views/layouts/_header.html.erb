@@ -1,0 +1,33 @@
+<nav class="navbar navbar-inverse" role="navigation">
+  <!--RS========= Brand and toggle get grouped for better mobile display ============RS-->
+  <div class="navbar-header custom-head">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href='/'><strong>Happy Hour</strong></a>
+  </div>
+
+  <!--RS========== Collect the nav links, forms, and other content for toggling ===========RS-->
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav navbar-left">
+      <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to "About", about_path %></li>
+      <li><%= link_to "Contact Us", contact_path %></li>
+    </ul>
+    <ul class="collapse navbar-collapse nav navbar-nav navbar-right navbar-ex1-collapse">
+    <% if logged_in? %>
+      <li><a href="/"><%= "Logged in as : #{current_user.name}" %></a>
+      <li><%= link_to "Manage My Bars (#{current_user.bars.length})", user_path(current_user) %></li>
+      <li><%= link_to 'Add A Bar', new_bar_path %></li>
+      <li><%= link_to 'Account Settings', edit_user_path(current_user) %></li>
+      <li><%= link_to 'Log Out', logout_path, method: :delete %></li>
+    <% else %>
+      <li><%= link_to "For Bar Owners : Sign Up Here", signup_path %></li>
+      <li><%= link_to "For Bar Owners : Log In Here", login_path %></li>
+    <% end %>
+    </ul>
+ </div><!-- /.navbar-collapse -->
+</nav>

@@ -2,6 +2,21 @@
   <h2 class='centeralign'> Add a Bar! </h2>
 
   <%= form_for [@user, @bar], html: {multipart: true} do |f|  %>
+
+
+        <% if @bar.errors.any? %>
+          <div>
+            <h4 class="text-danger"> <%= pluralize(@bar.errors.count, "error") %> prevented you from signing up!</h4>
+            <ul class="list-group">
+              <% @bar.errors.full_messages.each do |msg| %>
+                <li class="list-group-item list-group-item-danger centeralign">
+                  <%= msg.downcase %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
     <div class="form-group">
       <%= f.label :bar_name %>
       <%= f.text_field :bar_name, class: "form-control" %>

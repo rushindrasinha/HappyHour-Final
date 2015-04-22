@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id.to_s
       redirect_to root_path
     else
+      flash.now[:error] = "The email and / or password you entered are incorrect, Please check them and try again"
       render :new
     end
   end #def create end

@@ -2,7 +2,21 @@
   <h2>Sign Up Now</h2>
   <br>
   <%= form_for @user do |f|  %>
-    
+
+      <% if @user.errors.any? %>
+        <div>
+          <h4 class="text-danger"> <%= pluralize(@user.errors.count, "error") %> prevented you from signing up!</h4>
+          <ul class="list-group">
+            <% @user.errors.full_messages.each do |msg| %>
+              <li class="list-group-item list-group-item-danger">
+                <%= msg.downcase %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+
       <div class="form-group">
         <%= f.label :name %>
         <%= f.text_field :name, class: "form-control" %>
@@ -18,8 +32,13 @@
         <%= f.password_field :password, class: "form-control" %>
       </div>
       <br>
+      <div class="form-group">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, class: "form-control" %>
+      </div>
+      <br>
       <%= f.submit "Sign up!", class: "btn btn-lg btn-default" %>
       <br>
   <% end %>
-  
+
 </div>

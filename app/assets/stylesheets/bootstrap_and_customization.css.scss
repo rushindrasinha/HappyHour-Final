@@ -2,6 +2,11 @@
 
 body {
   background-color: #fff;
+  background-image: url('barbg.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
 }
 
 .login a {
@@ -18,12 +23,24 @@ body {
   color: #fff;
 }
 
+.headshade {
+  border: 1px solid #000;
+  background-color: rgba(255, 224, 178, 0.7);
+  border-radius: 25px;
+  margin-right: 400px;
+  margin-left: 400px;
+  padding: 5px;
+}
+
+
 .barlist {
   display: inline-block;
   border: 1px solid #000;
   margin: 5px;
   padding: 5px;
   text-align: center;
+  background-color: rgba(255, 224, 178, 0.7);
+  border-radius: 25px;
 }
 
 .edbutton {
@@ -37,6 +54,8 @@ body {
   margin: 5px;
   padding: 5px;
   text-align: center;
+  border-radius: 25px;
+  background-color: rgba(255, 224, 178, 0.8);
 }
 
 .offerlist {
@@ -45,6 +64,8 @@ body {
   margin: 5px;
   padding: 5px;
   text-align: center;
+  background-color: rgba(255, 224, 178, 0.8);
+  border-radius: 25px;
 }
 
 .custom-head {
@@ -52,8 +73,8 @@ body {
 }
 
 .navbar-inverse {
-  background-color: #00BFA5;
-  border-color: #00BFA5;
+  background-color: #EF6C00;
+  border-color: #EF6C00;
 }
 .navbar-inverse .navbar-brand {
   color: black;
@@ -64,7 +85,7 @@ body {
 }
 
 .jumbotron {
-  background-color: #B2DFDB;
+  background-color: rgba(255, 224, 178, 0.8);
   color: black;
 }
 

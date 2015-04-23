@@ -1,6 +1,6 @@
 class OffersController < ApplicationController
   before_action :require_login, only: [:new, :create, :update, :destroy, :edit, :index]
-  before_action :authorized?, only: [:new, :create, :edit, :update, :show, :destroy,]
+  before_action :authorized?, only: [:edit, :update, :show, :destroy,]
 
 
 

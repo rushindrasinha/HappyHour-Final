@@ -5,15 +5,15 @@
     <p>Anytime + Anywhere ... Find you the best Happy Hour Deals around you</p>
 </div>
     <% if logged_in? %>
-    <h2 class="centeralign">List of Bars</h2>
-    <form class="form-inline">
+    <h2 class="centeralign headshade">List of Bars</h2>
+    <!-- <form class="form-inline">
       <div class="form-group">
         <%= form_tag(root_path, {method: "get"}) do %>
           <%= text_field_tag(:q, nil, class: "form-control", placeholder: "Search by Location") %>
           <%= submit_tag "Search", class: "btn btn-md btn-default" %>
         <% end %>
         <%= form_tag(root_path, {method: "get"}) do %>
-          <%= text_field_tag(:r, nil, class: "form-control", placeholder: "Search by Zip Code") %>
+          <%= number_field_tag(:r, nil, class: "form-control", placeholder: "Search by Zip Code") %>
           <%= submit_tag "Search", class: "btn btn-md btn-default" %>
         <% end %>
         <%= form_tag(root_path, {method: "get"}) do %>
@@ -25,12 +25,12 @@
           <%= submit_tag "Search", class: "btn btn-md btn-default" %>
         <% end %>
       </div>
-    </form>
+    </form> -->
        <ul>
         <% @bars.each do |bar| %>
           <div class="barlist">
         <p><h3><%= bar.bar_name %></h3></p>
-        <p><%= image_tag bar.image.url %></p>
+        <p><%= image_tag bar.image.url(:medium) %></p>
         <p><strong>Location : </strong><%= bar.location %></p>
         <p><strong>Zip Code : </strong><%= bar.zip %></p>
         <p><strong>Happy Hour Day(s) : </strong><%= bar.day %></p>

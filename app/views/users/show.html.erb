@@ -4,7 +4,7 @@
   </section>
 </div>
   <section>
-    <h3 class="centeralign headshade">Bars</h3>
+    <h3 class="centeralign headshade">List of Your Bars</h3>
 
     <% @user.bars.each do |bar| %>
       <div class="barlistself">
@@ -16,9 +16,10 @@
         <p><strong>Happy Hour Timings : <%= bar.time %></strong></p>
         <p><strong>Bar Description : <%= bar.description %></strong></p>
         <p><strong>Number of Offers : <%= bar.offers.length %></strong></p>
-        <span class='edbutton'><%= link_to "Edit Bar", edit_bar_path(bar), class: "btn btn-primary" %></span>
-        <span class='edbutton'><%= link_to "Add Offer", bar_offers_path(bar), class: "btn btn-warning" %></span>
-        <h3>Offers</h3>
+        <div class='centeralign'>
+          <%= link_to "Edit Bar", edit_bar_path(bar), class: "btn btn-primary spacer" %>
+          <%= link_to "Add Offer", bar_offers_path(bar), class: "btn btn-warning spacer" %></div>
+        <h3 class="centeralign headshade">Offers</h3>
         <% bar.offers.each do |offer| %>
         <div class="offerlist">
           <p><%= image_tag offer.image.url(:thumb) %></p>

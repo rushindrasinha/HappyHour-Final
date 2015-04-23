@@ -17,29 +17,35 @@
       <% end %>
 
 
-      <div class="form-group">
-        <%= f.label :email %>
-        <%= f.text_field :email, class: "form-control", disabled:true %>
-      </div>
-      <div class="form-group">
-        <%= f.label :name %>
-        <%= f.text_field :name, class: "form-control" %>
-      </div>
-      <br>
-      <div class="form-group">
-        <%= f.label :password %>
-        <%= f.password_field :password, class: "form-control" %>
-      </div>
-      <br>
-      <div class="form-group">
-        <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, class: "form-control" %>
-      </div>
-      <br>
+      <form class="form-inline">
+        <div class="input-group">
+          <div class="input-group-addon">Name</div>
+          <%= f.text_field :name, class: "form-control", placeholder: "Type Your Name Here" %>
+        </div>
+        <br>
+        <br>
+        <div class="input-group">
+          <div class="input-group-addon">Email</div>
+          <%= f.email_field :email, class: "form-control", placeholder: "Type Email Id Here" %>
+        </div>
+        <br>
+        <br>
+        <div class="input-group">
+          <div class="input-group-addon">Password</div>
+          <%= f.password_field :password, class: "form-control", placeholder: "Type Password Here" %>
+        </div>
+        <br>
+        <br>
+        <div class="input-group">
+          <div class="input-group-addon">Confirm Password</div>
+          <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Retype Password Here" %>
+        </div>
+        <br>
+        <br>
       <div class="centeralign">
-      <%= f.submit "Update", class: "btn btn-lg btn-default" %>
+      <%= f.submit "Update", class: "spacer btn btn-lg btn-default" %>
       </div>
-      
+
       <br>
   <% end %>
 </div>

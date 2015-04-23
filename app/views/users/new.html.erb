@@ -1,5 +1,5 @@
 <div class="jumbotron">
-  <h2>Sign Up Now</h2>
+  <h2 class="centeralign">Create New Account</h2>
   <br>
   <%= form_for @user do |f|  %>
 
@@ -16,29 +16,34 @@
         </div>
       <% end %>
 
-
-      <div class="form-group">
-        <%= f.label :name %>
-        <%= f.text_field :name, class: "form-control" %>
-      </div>
-      <br>
-      <div class="form-group">
-        <%= f.label :email %>
-        <%= f.email_field :email, class: "form-control" %>
-      </div>
-      <br>
-      <div class="form-group">
-        <%= f.label :password %>
-        <%= f.password_field :password, class: "form-control" %>
-      </div>
-      <br>
-      <div class="form-group">
-        <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, class: "form-control" %>
-      </div>
-      <br>
-      <%= f.submit "Sign up!", class: "btn btn-lg btn-default" %>
-      <br>
+      <form class="form-inline">
+        <div class="input-group">
+          <div class="input-group-addon">Name</div>
+          <%= f.text_field :name, class: "form-control", placeholder: "Type Your Name Here" %>
+        </div>
+        <br>
+        <br>
+        <div class="input-group">
+          <div class="input-group-addon">Email</div>
+          <%= f.email_field :email, class: "form-control", placeholder: "Type Email Id Here" %>
+        </div>
+        <br>
+        <br>
+        <div class="input-group">
+          <div class="input-group-addon">Password</div>
+          <%= f.password_field :password, class: "form-control", placeholder: "Type Password Here" %>
+        </div>
+        <br>
+        <br>
+        <div class="input-group">
+          <div class="input-group-addon">Item</div>
+          <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Retype Password Here" %>
+        </div>
+        <br>
+        <br>
+        <div class="centeralign">
+          <%= f.submit "Create Account", class: "btn btn-lg btn-default spacer" %>
+        </div>
   <% end %>
 
 </div>

@@ -15,33 +15,37 @@
             </ul>
           </div>
         <% end %>
-
-  <form class="form-inline">
-    <div class="form-group">
-      <%= f.label :item %>
-      <%= f.text_field :item, class: "form-control" %>
-    </div>
-      <br>
+        <br>
+        <form class="form-inline">
+        <div class="input-group">
+          <div class="input-group-addon">Item</div>
+          <%= f.text_field :item, class: "form-control", placeholder: "Add Item Name Here" %>
+        </div>
+        <br>
+        <br>
         <div class="form-group">
           <div class="input-group">
             <div class="input-group-addon">$</div>
-            <%= f.number_field :price, class: "form-control", :step => 'any', placeholder: "Price" %>
+            <%= f.number_field :price, class: "form-control", :step => 'any', placeholder: "Add Price Here" %>
           </div>
         </div>
-
+        <br>
+        <br>
+        <div class="input-group">
+          <div class="input-group-addon">Summary</div>
+          <%= f.text_area :description, class: "form-control", placeholder: "Describe Offer Here" %>
+        </div>
       <br>
-    <div class="form-group">
-      <%= f.label :description %>
-      <%= f.text_area :description, class: "form-control", size: "25x15" %>
-    </div>
       <br>
-    <div class="form-group">
-      <%= f.label :image %>
-      <%= f.file_field :image, class: "form-control" %>
-    </div>
+      <div class="input-group">
+        <div class="input-group-addon">Image</div>
+        <%= f.file_field :image, class: "form-control", :step => 'any', placeholder: "Price" %>
+      </div>
       <br>
-
-      <%= f.submit "Add This Offer!", class: "btn btn-lg btn-default" %>
+      <br>
+      <div class="centeralign">
+      <%= f.submit "Add Offer", class: "btn btn-lg btn-default spacer" %>
+      </div>
     </form>
   <% end %>
 </div>

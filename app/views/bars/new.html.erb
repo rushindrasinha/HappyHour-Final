@@ -1,5 +1,5 @@
 <div class="jumbotron">
-  <h2 class='centeralign'> Add a Bar! </h2>
+  <h2 class='centeralign'> Add Your Bar </h2>
 
   <%= form_for [@user, @bar], html: {multipart: true} do |f|  %>
 
@@ -17,43 +17,53 @@
           </div>
         <% end %>
 
-    <div class="form-group">
-      <%= f.label :bar_name %>
-      <%= f.text_field :bar_name, class: "form-control" %>
-    </div>
+    <br>
+    <form class="form-inline">
+      <div class="input-group">
+        <div class="input-group-addon">Bar Name</div>
+        <%= f.text_field :bar_name, class: "form-control", placeholder: "Add Bar Name Here" %>
+      </div>
       <br>
-    <div class="form-group">
-      <%= f.label :location %>
-      <%= f.text_field :location, class: "form-control" %>
-    </div>
       <br>
-    <div class="form-group">
-      <%= f.label :zip %>
-      <%= f.number_field :zip, class: "form-control" %>
-    </div>
+      <div class="input-group">
+        <div class="input-group-addon">Address</div>
+        <%= f.text_area :location, class: "form-control", placeholder: "Add Bar Address here" %>
+      </div>
       <br>
-    <div class="form-group">
-      <%= f.label :day %>
-      <%= f.text_field :day, class: "form-control" %>
-    </div>
       <br>
-    <div class="form-group">
-      <%= f.label :time %>
-      <%= f.text_field :time, class: "form-control" %>
-    </div>
+      <div class="input-group">
+        <div class="input-group-addon">Zip Code</div>
+        <%= f.number_field :zip, class: "form-control", :step => 'any', placeholder: "Add Zip Code Here" %>
+      </div>
       <br>
-    <div class="form-group">
-      <%= f.label :description %>
-      <%= f.text_area :description, class: "form-control" %>
-    </div>
       <br>
-    <div class="form-group">
-      <%= f.label :image %>
-      <%= f.file_field :image, class: "form-control" %>
-    </div>
+      <div class="input-group">
+        <div class="input-group-addon">Day</div>
+        <%= f.text_field :day, class: "form-control", placeholder: "Add Day(s) of Happy Hour" %>
+      </div>
       <br>
-
-
-      <%= f.submit "Add This Bar!", class: "btn btn-lg btn-default" %>
+      <br>
+      <div class="input-group">
+        <div class="input-group-addon">Time</div>
+        <%= f.text_field :time, class: "form-control", placeholder: "Add Happy Hour Timings" %>
+      </div>
+      <br>
+      <br>
+      <div class="input-group">
+        <div class="input-group-addon">Summary</div>
+        <%= f.text_area :description, class: "form-control", placeholder: "Add A Description About Your Bar" %>
+      </div>
+      <br>
+      <br>
+      <div class="input-group">
+        <div class="input-group-addon">Image</div>
+        <%= f.file_field :image, class: "form-control" %>
+      </div>
+      <br>
+      <br>
+      <div class="centeralign">
+      <%= f.submit "Add Bar", class: "btn btn-lg btn-default" %>
+      </div>
+    </form>
   <% end %>
 </div>

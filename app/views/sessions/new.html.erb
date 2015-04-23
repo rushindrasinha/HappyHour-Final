@@ -1,19 +1,22 @@
 <div class="jumbotron">
-  <h2>Log In</h2>
+  <h2 class="centeralign">Log In</h2>
   <br>
   <%= form_for :login do |f| %>
-    <div class="form-group">
-      <%= f.label :email %>
-      <%= f.text_field :email, class: "form-control" %>
-    </div>
-    <br>
-    <div class="form-group">
-      <%= f.label :password %>
-      <%= f.password_field :password, class: "form-control" %>
-    </div>
-    <br>
-    <div class="form-group">
-      <%= f.submit 'Log In', class: "btn btn-default" %>
+    <form class="form-inline">
+      <div class="input-group">
+        <div class="input-group-addon">Email ID</div>
+        <%= f.email_field :email, class: "form-control", placeholder: "Type Your Email Here" %>
+      </div>
+      <br>
+      <br>
+      <div class="input-group">
+        <div class="input-group-addon">Password</div>
+        <%= f.password_field :password, class: "form-control", placeholder: "Type Your Password Here" %>
+      </div>
+      <br>
+      <br>
+    <div class="centeralign">
+      <%= f.submit 'Log In', class: "spacer btn btn-lg btn-default" %>
     </div>
     <br>
   <% end %>

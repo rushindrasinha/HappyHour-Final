@@ -6,9 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create!(name: "Billy Bazooka", email: "a@b.com", password: "123")
+User.create!(name: "Billy Bazooka", email: "a@b.com", password: "123456")
 
-User.create!(name: "Henry Hardwell", email: "b@b.com", password: "123")
+User.create!(name: "Henry Hardwell", email: "b@b.com", password: "123456")
 
 
 Bar.create(bar_name: "The Misfit", location: "225 Santa Monica Blvd Santa Monica, CA 90401", zip: 90401, day: "Weekdays", time: "1:00 pm - 4:00 pm", user_id: 1)

@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  before_action :require_login, only: [:edit, :update]
+  before_action :authorized?, only: [:edit, :update, :show]
 
   def about
   end
@@ -56,5 +58,20 @@ end
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
+
+  def require_login
+    unless logged_in?
+      flash[:error] = "You must be logged in to access that page!"
+      redirect_to login_path
+    end
+  end
+
+  def authorized?
+    unless current_user == User.find(params[:id])
+      flash[:error] = "You are not authorized to access that page"
+      redirect_to root_path
+    end
+  end
+
 
 end

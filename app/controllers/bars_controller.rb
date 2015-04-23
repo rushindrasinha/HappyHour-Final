@@ -1,4 +1,7 @@
 class BarsController < ApplicationController
+  before_action :require_login, only: [:new, :create, :update, :destroy, :edit, :index]
+  before_action :authorized?, only: [:edit, :update, :show, :destroy,]
+
   def index
     @bars = Bar.all
   end
@@ -43,6 +46,25 @@ class BarsController < ApplicationController
     @bar.destroy
     redirect_to user_path(current_user)
   end
+
+  private
+
+  def require_login
+    unless logged_in?
+      flash[:error] = "You must be logged in to access that page!"
+      redirect_to login_path
+    end
+  end
+
+  def authorized?
+    unless current_user == Bar.find(params[:id]).user
+      flash[:error] = "You are not authorized to access that page"
+      redirect_to root_path
+    end
+  end
+
+
+
 
 
 end

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'pages#index'
   get 'about' => 'pages#about'
   get 'contact' => 'pages#contact'
+  get 'map' => 'pages#map'
 
   #Sign up Routes
   get 'signup' => 'users#new'

@@ -1,6 +1,6 @@
 class Offer < ActiveRecord::Base
   belongs_to :bar
-  has_attached_file :image, :styles => { :medium => "500x500>", :thumb => "25x25>"} , :default_url => "https://s3-us-west-1.amazonaws.com/happyhour-rushi/beer.png"
+  has_attached_file :image, :styles => { :medium => "500x500>", :thumb => "50x50>"} , :default_url => "https://s3-us-west-1.amazonaws.com/happyhour-rushi/beer.png"
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
 
   validates :item, presence: true

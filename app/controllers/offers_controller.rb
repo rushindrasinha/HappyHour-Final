@@ -1,6 +1,7 @@
 class OffersController < ApplicationController
   before_action :require_login, only: [:new, :create, :update, :destroy, :edit, :index]
-  before_action :authorized?, only: [:edit, :update, :show, :destroy,]
+  before_action :authorized?, only: [:edit, :update, :show, :destroy]
+  before_action :authorize_new_offer?, only: [:new]
 
 
 
@@ -68,6 +69,12 @@ class OffersController < ApplicationController
     end
   end
 
+  def authorize_new_offer?
+    unless current_user == Bar.find(params[:id]).user
+      flash[:error] = "You are not authorized to access that page"
+      redirect_to root_path
+    end
+  end
 
 
 end

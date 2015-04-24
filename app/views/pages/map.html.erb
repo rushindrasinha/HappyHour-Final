@@ -1,0 +1,159 @@
+
+
+<style media="screen">
+#googleMap {
+  height: 600px;
+  width: 1000px;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+</style>
+<script src="https://maps.googleapis.com/maps/api/js"> </script>
+
+<div class="jumbotron">
+
+  <h3 class="centeralign headshade">Find Our Recommended Bars <br> <span><h5>Click the BarMug for Details</h5></span></h3>
+  <br>
+      <div class="mapline centeralign" id="googleMap"></div>
+      <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d6614.256921498301!2d-118.4921280616509!3d34.01491339327656!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1429816165171" width="800" height="600" frameborder="0" style="border:0"></iframe> -->
+    </div>
+    <br>
+</div>
+
+
+<script type="text/javascript">
+// jQuery(function($) {
+//   // Asynchronously Load the map API
+//   var script = document.createElement('script');
+//   script.src = "http://maps.googleapis.com/maps/api/js?sensor=false&callback=initialize";
+//   document.body.appendChild(script);
+// });
+//
+//
+//
+// function initialize() {
+//   $.get("https://maps.googleapis.com/maps/api/geocode/json?address=<%= @bar.location %>" , function(data){
+//      console.log(data.results[0].geometry.location);
+//      var location = data.results[0].geometry.location;
+//       var myLatlng = new google.maps.LatLng(location.lat, location.lng);
+//       var mapOptions = {
+//         zoom: 16,
+//         center: myLatlng
+//       }
+//
+//     var map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
+//     var image = 'http://i57.tinypic.com/bgxrok.png';
+//     var myLatLng = new google.maps.LatLng(location.lat, location.lng);
+//     var beachMarker = new google.maps.Marker({
+//     position: myLatLng,
+//     map: map,
+//     icon: image
+//     });
+//
+//
+//           var infowindow = new google.maps.InfoWindow({
+//               content: "<%= @bar.bar_name %></br><%= @bar.day %></br><%= @bar.time %> "
+//               });
+//       infowindow.open(map,beachMarker);
+// });
+//     }
+//
+//
+//     google.maps.event.addDomListener(window, 'load', initialize);
+//
+
+</script>
+
+
+<script type="text/javascript">
+jQuery(function($) {
+  // Asynchronously Load the map API
+  var script = document.createElement('script');
+  script.src = "http://maps.googleapis.com/maps/api/js?sensor=false&callback=initialize";
+  document.body.appendChild(script);
+});
+
+function initialize() {
+  var map;
+  var bounds = new google.maps.LatLngBounds();
+  var mapOptions = {
+      mapTypeId: 'roadmap'
+  };
+
+  // Display a map on the page
+  map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
+  map.setTilt(45);
+
+  // Multiple Markers
+  var markers = [
+      ['Misfit Bar, Santa Monica', 34.015442,-118.496668],
+      ['Aestus, Santa Monica', 34.0204,-118.49728],
+      ['Zanzibar, Santa Monica', 34.018578,-118.495455],
+      ['Bodega Wine Bar, Santa Monica', 34.0182344,-118.4920546],
+      ["Michael's Bar, Santa Monica", 34.018922,-118.499607]
+  ];
+
+  // Info Window Content
+  var infoWindowContent = [
+      ['<div class="info_content">' +
+      '<h3><%= @bar.bar_name %></h3>' +
+      '<p><%= @bar.location %><p>' +
+      '<p><%= @bar.day %></p>' +
+      '<p><%= @bar.time %></p>' +        '</div>'],
+      ['<div class="info_content">' +
+      '<h3><%= @bar.bar_name %></h3>' +
+      '<p><%= @bar.location %><p>' +
+      '<p><%= @bar.day %></p>' +
+      '<p><%= @bar.time %></p>' +        '</div>'],
+      ['<div class="info_content">' +
+      '<h3><%= @bar.bar_name %></h3>' +
+      '<p><%= @bar.location %><p>' +
+      '<p><%= @bar.day %></p>' +
+      '<p><%= @bar.time %></p>' +        '</div>'],
+      ['<div class="info_content">' +
+      '<h3><%= @bar.bar_name %></h3>' +
+      '<p><%= @bar.location %><p>' +
+      '<p><%= @bar.day %></p>' +
+      '<p><%= @bar.time %></p>' +        '</div>'],
+      ['<div class="info_content">' +
+      '<h3><%= @bar.bar_name %></h3>' +
+      '<p><%= @bar.location %><p>' +
+      '<p><%= @bar.day %></p>' +
+      '<p><%= @bar.time %></p>' +        '</div>']
+
+  ];
+
+  // Display multiple markers on a map
+  var infoWindow = new google.maps.InfoWindow(), marker, i;
+
+  // Loop through our array of markers & place each one on the map
+  for( i = 0; i < markers.length; i++ ) {
+      var position = new google.maps.LatLng(markers[i][1], markers[i][2], markers[i][3]);
+      bounds.extend(position);
+      marker = new google.maps.Marker({
+          position: position,
+          map: map,
+          title: markers[i][0],
+          icon: 'http://i57.tinypic.com/bgxrok.png'
+      });
+
+      // Allow each marker to have an info window
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+          return function() {
+              infoWindow.setContent(infoWindowContent[i][0]);
+              infoWindow.open(map, marker);
+          }
+      })(marker, i));
+
+      // Automatically center the map fitting all markers on the screen
+      map.fitBounds(bounds);
+  }
+
+  // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
+  var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+      this.setZoom(16);
+      google.maps.event.removeListener(boundsListener);
+  });
+
+}
+</script>

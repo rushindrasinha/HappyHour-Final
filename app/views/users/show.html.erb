@@ -18,7 +18,7 @@
         <p><strong>Number of Offers : <%= bar.offers.length %></strong></p>
         <div class='centeralign'>
           <%= link_to "Edit Bar", edit_bar_path(bar), class: "btn btn-primary spacer" %>
-          <%= link_to "Add Offer", bar_offers_path(bar), class: "btn btn-warning spacer" %></div>
+          <%= link_to "Add Offer", bar_offers_path(bar), class: "btn btn-success spacer" %></div>
         <h3 class="centeralign headshade">Offers</h3>
         <% bar.offers.each do |offer| %>
         <div class="offerlist">
@@ -26,7 +26,7 @@
           <p><strong>Item : <%= offer.item %></strong></p>
           <p><strong>Price : $<%= offer.price %></strong></p>
           <p><strong>Description : <%= offer.description %></strong></p>
-          <span class='edbutton'><%= link_to "Edit Offer", edit_offer_path(offer), class: "btn btn-md btn-success" %></span>
+          <span class='edbutton'><%= link_to "Edit Offer", edit_offer_path(offer), class: "btn btn-md btn-warning" %></span>
         </div>
         <% end %>
       </div>

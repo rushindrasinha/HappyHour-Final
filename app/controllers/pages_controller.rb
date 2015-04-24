@@ -54,6 +54,11 @@ end
   end #end update def
 
 
+  def map
+    @bar = Bar.first
+  end
+
+
   private
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)

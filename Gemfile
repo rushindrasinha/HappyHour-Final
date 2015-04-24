@@ -42,6 +42,7 @@ gem 'rmagick'
 gem 'mini_magick'
 #gem 'carrierwave-aws'
 gem 'paperclip', '~> 4.2'
+gem 'aws-sdk', '< 2.0'
 
 
 group :development, :test do

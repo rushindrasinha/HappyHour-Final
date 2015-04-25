@@ -44,15 +44,16 @@ body {
 
 }
 
-
+.responsive-self {
+  max-width: 100%;
+}
 
 .headshade {
   border: 1px solid #000;
   background-color: rgba(255, 224, 178, 0.7);
   border-radius: 25px;
-  margin-right: 300px;
-  margin-left: 300px;
   padding: 5px;
+  max-width: 100%;
 }
 
 
@@ -64,6 +65,7 @@ body {
   text-align: center;
   background-color: rgba(255, 224, 178, 0.7);
   border-radius: 25px;
+  max-width: 100%;
 }
 
 .edbutton {
@@ -79,6 +81,7 @@ body {
   text-align: center;
   border-radius: 25px;
   background-color: rgba(255, 224, 178, 0.8);
+  max-width: 100%;
 }
 
 .offerlist {
@@ -89,6 +92,7 @@ body {
   text-align: center;
   background-color: rgba(255, 224, 178, 0.8);
   border-radius: 25px;
+  max-width: 100%;
 }
 
 .custom-head {
@@ -122,4 +126,5 @@ body {
 
 .mapline {
   margin: 0 auto;
+  max-width: 100%;
 }

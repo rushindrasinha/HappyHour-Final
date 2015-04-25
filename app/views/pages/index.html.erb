@@ -1,51 +1,50 @@
-<div class="jumbotron centeralign">
-    <h2>Happy Hour</h2>
-    <h4>Find the Best Offers at the Best Bars</h4>
+  <div class="jumbotron centeralign">
+      <h2>Happy Hour</h2>
+      <h4>Find the Best Offers at the Best Bars</h4>
 
-    </div>
-    <!-- <form class="form-inline">
-      <div class="form-group">
-        <%= form_tag(root_path, {method: "get"}) do %>
-          <%= text_field_tag(:q, nil, class: "form-control", placeholder: "Search by Location") %>
-          <%= submit_tag "Search", class: "btn btn-md btn-default" %>
-        <% end %>
-        <%= form_tag(root_path, {method: "get"}) do %>
-          <%= number_field_tag(:r, nil, class: "form-control", placeholder: "Search by Zip Code") %>
-          <%= submit_tag "Search", class: "btn btn-md btn-default" %>
-        <% end %>
-        <%= form_tag(root_path, {method: "get"}) do %>
-          <%= text_field_tag(:s, nil, class: "form-control", placeholder: "Search by HH Day") %>
-          <%= submit_tag "Search", class: "btn btn-md btn-default" %>
-        <% end %>
-        <%= form_tag(root_path, {method: "get"}) do %>
-          <%= text_field_tag(:p, nil, class: "form-control", placeholder: "Search by Bar Name") %>
-          <%= submit_tag "Search", class: "btn btn-md btn-default" %>
-        <% end %>
       </div>
-    </form> -->
-    <!-- <h2 class="centeralign headshade">List of all Bars and Happy Hours + Offers</h2> -->
-       <ul>
-        <% @bars.each do |bar| %>
-          <div class="barlist">
-            <p><h3 class="headshade"><%= bar.bar_name %></h3></p>
-            <p><%= image_tag bar.image.url(:medium) %></p>
-            <p><strong>Location : </strong><%= bar.location %></p>
-            <p><strong>Zip Code : </strong><%= bar.zip %></p>
-            <p><strong>Happy Hour Day(s) : </strong><%= bar.day %></p>
-            <p><strong>Happy Hour Timings : </strong><%= bar.time %></p>
-            <p><strong>Summary : </strong><%= bar.description %></p>
-              <% bar.offers.each do |offer| %>
-              <div class="barlist">
-                <p><%= image_tag offer.image.url(:thumb) %></p>
-                <p><strong>Item : </strong><%= offer.item %></p>
-                <p><strong>Price : </strong>$<%= offer.price %></p>
-                <p><strong>Details : </strong><%= offer.description %></p>
-              </div>
-              <% end %>
-          </div>
-        <% end %>
-      </ul>
-
+      <!-- <form class="form-inline">
+        <div class="form-group">
+          <%= form_tag(root_path, {method: "get"}) do %>
+            <%= text_field_tag(:q, nil, class: "form-control", placeholder: "Search by Location") %>
+            <%= submit_tag "Search", class: "btn btn-md btn-default" %>
+          <% end %>
+          <%= form_tag(root_path, {method: "get"}) do %>
+            <%= number_field_tag(:r, nil, class: "form-control", placeholder: "Search by Zip Code") %>
+            <%= submit_tag "Search", class: "btn btn-md btn-default" %>
+          <% end %>
+          <%= form_tag(root_path, {method: "get"}) do %>
+            <%= text_field_tag(:s, nil, class: "form-control", placeholder: "Search by HH Day") %>
+            <%= submit_tag "Search", class: "btn btn-md btn-default" %>
+          <% end %>
+          <%= form_tag(root_path, {method: "get"}) do %>
+            <%= text_field_tag(:p, nil, class: "form-control", placeholder: "Search by Bar Name") %>
+            <%= submit_tag "Search", class: "btn btn-md btn-default" %>
+          <% end %>
+        </div>
+      </form> -->
+      <!-- <h2 class="centeralign headshade">List of all Bars and Happy Hours + Offers</h2> -->
+<section>
+          <% @bars.each do |bar| %>
+            <div class="barlistself">
+              <p><h3 class="headshade"><%= bar.bar_name %></h3></p>
+              <p><%= image_tag bar.image.url(:medium), class: "responsive-self" %></p>
+              <p><strong>Location : </strong><%= bar.location %></p>
+              <p><strong>Zip Code : </strong><%= bar.zip %></p>
+              <p><strong>Happy Hour Day(s) : </strong><%= bar.day %></p>
+              <p><strong>Happy Hour Timings : </strong><%= bar.time %></p>
+              <p><strong>Summary : </strong><%= bar.description %></p>
+                <% bar.offers.each do |offer| %>
+                <div class="offerlist">
+                  <p><%= image_tag offer.image.url(:thumb), class: "responsive-self" %></p>
+                  <p><strong>Item : </strong><%= offer.item %></p>
+                  <p><strong>Price : </strong>$<%= offer.price %></p>
+                  <p><strong>Details : </strong><%= offer.description %></p>
+                </div>
+                <% end %>
+            </div>
+          <% end %>
+</section>
 
 
 <!--

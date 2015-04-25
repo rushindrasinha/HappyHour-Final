@@ -21,49 +21,6 @@
 </div>
 
 
-<script type="text/javascript">
-// jQuery(function($) {
-//   // Asynchronously Load the map API
-//   var script = document.createElement('script');
-//   script.src = "http://maps.googleapis.com/maps/api/js?sensor=false&callback=initialize";
-//   document.body.appendChild(script);
-// });
-//
-//
-//
-// function initialize() {
-//   $.get("https://maps.googleapis.com/maps/api/geocode/json?address=<%= @bar.location %>" , function(data){
-//      console.log(data.results[0].geometry.location);
-//      var location = data.results[0].geometry.location;
-//       var myLatlng = new google.maps.LatLng(location.lat, location.lng);
-//       var mapOptions = {
-//         zoom: 16,
-//         center: myLatlng
-//       }
-//
-//     var map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
-//     var image = 'http://i57.tinypic.com/bgxrok.png';
-//     var myLatLng = new google.maps.LatLng(location.lat, location.lng);
-//     var beachMarker = new google.maps.Marker({
-//     position: myLatLng,
-//     map: map,
-//     icon: image
-//     });
-//
-//
-//           var infowindow = new google.maps.InfoWindow({
-//               content: "<%= @bar.bar_name %></br><%= @bar.day %></br><%= @bar.time %> "
-//               });
-//       infowindow.open(map,beachMarker);
-// });
-//     }
-//
-//
-//     google.maps.event.addDomListener(window, 'load', initialize);
-//
-
-</script>
-
 
 <script type="text/javascript">
 jQuery(function($) {
@@ -95,31 +52,13 @@ function initialize() {
 
   // Info Window Content
   var infoWindowContent = [
+    <% @bars.each do |bar| %>
       ['<div class="info_content">' +
-      '<h3><%= @bar.bar_name %></h3>' +
-      '<p><%= @bar.location %><p>' +
-      '<p><%= @bar.day %></p>' +
-      '<p><%= @bar.time %></p>' +        '</div>'],
-      ['<div class="info_content">' +
-      '<h3><%= @bar.bar_name %></h3>' +
-      '<p><%= @bar.location %><p>' +
-      '<p><%= @bar.day %></p>' +
-      '<p><%= @bar.time %></p>' +        '</div>'],
-      ['<div class="info_content">' +
-      '<h3><%= @bar.bar_name %></h3>' +
-      '<p><%= @bar.location %><p>' +
-      '<p><%= @bar.day %></p>' +
-      '<p><%= @bar.time %></p>' +        '</div>'],
-      ['<div class="info_content">' +
-      '<h3><%= @bar.bar_name %></h3>' +
-      '<p><%= @bar.location %><p>' +
-      '<p><%= @bar.day %></p>' +
-      '<p><%= @bar.time %></p>' +        '</div>'],
-      ['<div class="info_content">' +
-      '<h3><%= @bar.bar_name %></h3>' +
-      '<p><%= @bar.location %><p>' +
-      '<p><%= @bar.day %></p>' +
-      '<p><%= @bar.time %></p>' +        '</div>']
+      '<h4><%= bar.bar_name %></h4>' +
+      '<strong><%= bar.location.gsub /\n/, " " %></strong>' +
+      '<br><strong><%= bar.day %></strong>' +
+      '<br><strong><%= bar.time %></strong>' +        '</div>'],
+    <% end %>
 
   ];
 

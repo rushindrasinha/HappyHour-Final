@@ -55,7 +55,7 @@ end
 
 
   def map
-    @bar = Bar.first
+    @bars = Bar.all
   end
 
 

@@ -13,20 +13,47 @@
   <!--RS========== Collect the nav links, forms, and other content for toggling ===========RS-->
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav navbar-left">
-      <li><%= link_to "Home", root_path %></li>
-      <li><%= link_to "Maps", map_path, 'data-no-turbolink' => true %></li>
-      <li><%= link_to "About", about_path %></li>
-      <li><%= link_to "Contact Us", contact_path %></li>
+      <li><%= link_to root_path do %>
+            <span class="glyphicon glyphicon-home"> Home
+          <% end %>
+      </li>
+      <li><%= link_to map_path, 'data-no-turbolink' => true do %>
+            <span class="glyphicon glyphicon-map-marker"></span> Map
+          <% end %>
+      </li>
+      <li><%= link_to about_path do %>
+            <span class="glyphicon glyphicon-info-sign"></span> About
+          <% end %>
+      </li>
+      <li><%= link_to contact_path do %>
+            <span class="glyphicon glyphicon-earphone"></span> Contact Us
+          <% end %>
+      </li>
     </ul>
     <ul class="collapse navbar-collapse nav navbar-nav navbar-right navbar-ex1-collapse">
     <% if logged_in? %>
       <li><a href="/"><%= "Welcome : #{current_user.name}" %></a>
-      <li><%= link_to "Manage My Bars (#{current_user.bars.length})", user_path(current_user) %></li>
-      <li><%= link_to 'Add A Bar', new_bar_path %></li>
-      <li><%= link_to 'Account Settings', edit_user_path(current_user) %></li>
-      <li><%= link_to 'Log Out', logout_path, method: :delete %></li>
+      <li><%= link_to user_path(current_user) do %>
+            <span class="glyphicon glyphicon-edit"></span> <%= "Manage My Bars (#{current_user.bars.length})" %>
+          <% end %>
+      </li>
+      <li><%= link_to new_bar_path do %>
+            <span class="glyphicon glyphicon-plus"></span> Add Bar
+          <% end %>
+      </li>
+      <li><%= link_to edit_user_path(current_user) do %>
+            <span class="glyphicon glyphicon-cog"></span> Account Settings
+          <% end %>
+      </li>
+      <li><%= link_to logout_path, method: :delete do %>
+            <span class="glyphicon glyphicon-off"></span> Log Out
+          <% end %>
+      </li>
     <% else %>
-      <li><%= link_to "Create Account ( Bar Owners )", signup_path %></li>
+      <li><%= link_to signup_path do %>
+            <span class="glyphicon glyphicon-plus"></span> Create Account (Bar Owners)
+          <% end %>
+      </li>
       <li>
         <!-- <%= form_for :login, :url => login_path, :method => "post"   do |f| %>
             <div class="form-group spaceform">
@@ -39,7 +66,10 @@
           <% end %> -->
       </li>
 
-      <li><%= link_to "Sign In", login_path %></li>
+      <li><%= link_to login_path do %>
+            <span class="glyphicon glyphicon-log-in"></span> Log In
+          <% end %>
+      </li>
     <% end %>
     </ul>
  </div><!-- /.navbar-collapse -->

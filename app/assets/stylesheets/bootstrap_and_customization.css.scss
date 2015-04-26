@@ -1,3 +1,4 @@
+@import "bootstrap-sprockets";
 @import 'bootstrap';
 
 body {
@@ -21,6 +22,32 @@ body {
 
 .login {
   color: #fff;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:visited {
+    color: #000;
+    text-decoration: none;
+}
+
+a:active {
+    color: #000;
+    text-decoration: none;
+}
+
+span.glyphicon {
+    vertical-align: middle;
+    margin-top: -5px;
+    font-size: 16px;
 }
 
 .spacer {
@@ -49,17 +76,24 @@ body {
 }
 
 .headshade {
-  border: 1px solid #000;
-  background-color: rgba(255, 224, 178, 0.7);
+  // border: 1px solid #000;
+  background-color: rgba(255, 224, 178, 0.8);
   border-radius: 25px;
   padding: 5px;
   max-width: 100%;
 }
 
+.titleshade{
+  background-color: rgba(255, 224, 178, 0.9);
+  max-width: 100%;
+  padding: 10px;
+  border-radius: 20px;
+}
+
 
 .barlist {
   display: inline-block;
-  border: 1px solid #000;
+  // border: 1px solid #000;
   margin: 5px;
   padding: 5px;
   text-align: center;
@@ -75,7 +109,7 @@ body {
 
 .barlistself {
   display: block;
-  border: 1px solid #000;
+  // border: 1px solid #000;
   margin: 5px;
   padding: 5px;
   text-align: center;
@@ -86,11 +120,11 @@ body {
 
 .offerlist {
   display: inline-block;
-  border: 1px solid #000;
+  // border: 1px solid #000;
   margin: 5px;
   padding: 5px;
   text-align: center;
-  background-color: rgba(255, 224, 178, 0.8);
+  background-color: rgba(255, 224, 178, 0.6);
   border-radius: 25px;
   max-width: 100%;
 }

@@ -18,7 +18,8 @@ class PagesController < ApplicationController
   elsif params[:s]
     @bars = Bar.where("day like ?", '%' + params[:s] + '%')
   else
-    @bars = Bar.all
+    # @bars = Bar.all
+    @bars = Bar.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 3)
   end
 end
 

@@ -5,6 +5,7 @@
 </div>
   <section>
     <% @user.bars.each do |bar| %>
+    <br>
       <div class="barlistself">
         <p><h3><%= bar.bar_name %></h3></p>
         <p><%= image_tag bar.image.url, class: "responsive-self" %></p>
@@ -15,16 +16,31 @@
         <p><strong>Bar Description : <%= bar.description %></strong></p>
         <p><strong>Number of Offers : <%= bar.offers.length %></strong></p>
         <div class='centeralign'>
-          <%= link_to "Edit Bar", edit_bar_path(bar), class: "btn btn-primary spacer" %>
-          <%= link_to "Add Offer", bar_offers_path(bar), class: "btn btn-success spacer" %></div>
-        <h3 class="centeralign headshade">Offers</h3>
+          <%= link_to edit_bar_path(bar), class: "btn btn-primary" do %>
+            <span class="glyphicon glyphicon-edit"></span> Edit Bar
+          <% end %>
+          <%= link_to bar_offers_path(bar), class: "btn btn-success" do %>
+            <span class="glyphicon glyphicon-plus"></span> Add Offer
+          <% end %>
+
+          <!-- <%= link_to root_path, class: "btn btn-default" do %>
+            <i class="glyphicon glyphicon-plus">Home</i>
+          <% end %> -->
+          </div>
+          <br>
+        <h3 class="centeralign"><span class="titleshade">Offers</span></h3>
+        <br>
         <% bar.offers.each do |offer| %>
         <div class="offerlist">
           <p><%= image_tag offer.image.url(:thumb), class: "responsive-self" %></p>
           <p><strong>Item : <%= offer.item %></strong></p>
           <p><strong>Price : $<%= offer.price %></strong></p>
-          <p><strong>Description : <%= offer.description %></strong></p>
-          <span class='edbutton'><%= link_to "Edit Offer", edit_offer_path(offer), class: "btn btn-md btn-warning" %></span>
+          <p><strong>Details : <%= offer.description %></strong></p>
+          <span class='edbutton'>
+            <%= link_to edit_offer_path(offer), class: "btn btn-md btn-warning" do %>
+              <span class="glyphicon glyphicon-edit"></span> Edit Offer
+            <% end %>
+            </span>
         </div>
         <% end %>
       </div>

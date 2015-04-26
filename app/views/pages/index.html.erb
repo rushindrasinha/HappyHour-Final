@@ -27,9 +27,10 @@
 <section>
       <% @bars.each do |bar| %>
         <div class="barlistself">
-          <p><h3 class="headshade"><%= bar.bar_name %></h3></p>
+          <p><h3><span class="titleshade"><%= bar.bar_name %></span></h3></p>
+          <br>
           <p><%= image_tag bar.image.url(:medium), class: "responsive-self" %></p>
-          <p><strong>Location : </strong><%= bar.location %></p>
+          <p><strong>Location : </strong><a target="_blank" href="/map"><%= bar.location %></p></a>
           <p><strong>Zip Code : </strong><%= bar.zip %></p>
           <p><strong>Happy Hour Day(s) : </strong><%= bar.day %></p>
           <p><strong>Happy Hour Timings : </strong><%= bar.time %></p>
@@ -45,7 +46,9 @@
         </div>
       <% end %>
 </section>
-
+          <div class="barlistself centeralign">
+            <%= will_paginate @bars, renderer: BootstrapPagination::Rails %>
+          </div>
 
 <!--
     <%= text_field_tag(:r, nil, class: "form-control", placeholder: "Search by Zip Code") %>

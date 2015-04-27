@@ -56,7 +56,7 @@ function initialize() {
     <% @bars.each do |bar| %>
       ['<div class="info_content">' +
       '<h4><%= bar.bar_name %></h4>' +
-      '<strong><%= bar.location.gsub /\n/, " " %></strong>' +
+      '<strong><%= bar.location.gsub /\n/," " %></strong>' +
       '<br><strong><%= bar.day %></strong>' +
       '<br><strong><%= bar.time %></strong>' +        '</div>'],
     <% end %>

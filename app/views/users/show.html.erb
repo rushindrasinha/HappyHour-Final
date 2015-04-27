@@ -8,7 +8,7 @@
     <br>
       <div class="barlistself">
         <p><h3><%= bar.bar_name %></h3></p>
-        <p><%= image_tag bar.image.url, class: "responsive-self" %></p>
+        <p><%= image_tag bar.image.url(:medium), class: "responsive-self" %></p>
         <p><strong>Bar Location : <%= bar.location %></strong></p>
         <p><strong>Zip Code : <%= bar.zip %></strong></p>
         <p><strong>Day of the week : <%= bar.day %></strong></p>

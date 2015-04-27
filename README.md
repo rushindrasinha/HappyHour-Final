@@ -6,7 +6,14 @@
 ###### Introducing HappyHour.... A realtime tracker for all bars and restaurants around you to keep track of the dynamic happy hours around you. This site allows you to view based on location and time all the bars and restaurants that have Happy Hours at that very instant so that you can plan your outing accordingly. It will also show you a comprehensive list of prices so you can compare and pick the place that best suits you.
 
 ___
-#### Current Version 0.1
+
+##### Heroku Link for Production
+
+[Happy Hour](http://happyhour-rushi.herokuapp.com)
+
+
+---
+#### Current Version 1.0
 ---
 ##### Done
 1. Initialised rails app.
@@ -39,24 +46,23 @@ ___
 28. Added Glyphicons
 29. Fixed Precompiling errors
 30. Added Contact Form (non functional)
+
+
+
 ---
 
 ##### Upcoming
 1. Complete Contact Form
 2. Connect Yelp Api
 3. Auto Populate Google Maps Marker when new bar is added
-4.
 ---
 ##### Known Bugs
-
+1. Contact form non functional
+2.
 
 ---
 ##### Pivotal Tracker
 [Project Management](https://www.pivotaltracker.com/n/projects/1320884)
-
-##### Heroku Link for Production
-
-[Currently Unavailable](http://happyhour-rushi.herokuapp.com)
 
 ---
 
@@ -70,5 +76,9 @@ Data Model [Updated]
 Data Model [Old]
 ![Data Model](https://raw.githubusercontent.com/rushindrasinha/HappyHour/master/assets/dm.png)
 ---
-
 ###Made by Rushindra Sinha
+---
+###### Special Credits
+1. [Glenn](https://github.com/harrisgca) for helping me with my routing issues and other stuff in general
+2. [Jimmy](https://github.com/jimbog) for helping me with Google Maps API
+3. [Shawn](https://github.com/officiallysrod) for being there overall

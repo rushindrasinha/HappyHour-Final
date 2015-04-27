@@ -16,8 +16,7 @@
   <h3 class="centeralign headshade">Find Our Recommended Bars <br> <span><h5>Click the BarMug for Details</h5></span></h3>
   <br>
       <div class="mapline centeralign" id="googleMap"></div>
-
-      </div>
+    </div>
     <br>
 </div>
 
@@ -56,7 +55,7 @@ function initialize() {
     <% @bars.each do |bar| %>
       ['<div class="info_content">' +
       '<h4><%= bar.bar_name %></h4>' +
-      '<strong><%= bar.location.gsub /\n/," " %></strong>' +
+      '<strong><%= bar.location.gsub /\n/, " " %></strong>' +
       '<br><strong><%= bar.day %></strong>' +
       '<br><strong><%= bar.time %></strong>' +        '</div>'],
     <% end %>
